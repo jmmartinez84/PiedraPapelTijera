@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PiedraPapelTijera</title>
+	<meta http-equiv="X-UA-Compatible" content="edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0;">
+	<link href="EstiloMovil.css" rel="StyleSheet">
+  <script src="jquery-1.7.1.min.js"></script>
+  <script src="interfaz.js"></script>
+	<script>
+	window.onload=function(){
+	
+	var canvasFondo = document.getElementById("fondo");
+    var contextFondo = canvasFondo.getContext("2d");
+    var topLeftCornerX = 0;
+    var topLeftCornerY = 0;
+    //Fondo superior
+    var width = canvasFondo.width;
+    var height = canvasFondo.height/2-canvasFondo.height/2*0.01;
+    contextFondo.beginPath();
+    contextFondo.rect(topLeftCornerX, topLeftCornerY, width, height);
+    contextFondo.fillStyle = "#33393D";
+    contextFondo.fill();
+	contextFondo.stroke();
+	contextFondo.closePath();
+	//Fondo inferior
+	  topLeftCornerY = canvasFondo.height/2+canvasFondo.height/2*0.01;
+    contextFondo.beginPath();
+    contextFondo.rect(topLeftCornerX, topLeftCornerY, width, height);
+    contextFondo.fillStyle = "#31918e";
+    contextFondo.fill();
+    contextFondo.stroke();
+    contextFondo.closePath();
+	for(var i=0;i<19;i++)
+	{
+    	for(var j=0;j<13;j++)
+    	{
+    	contextFondo.beginPath();
+    	var centerX = 15/480*canvasFondo.width+i*25/480*canvasFondo.width;
+    	var centerY = 7/800*canvasFondo.height+j*13/800*canvasFondo.height;
+    	var radius = canvasFondo.height/800*(13-j)/2;
+    	contextFondo.arc(centerX,centerY,radius,0,2*Math.PI,false);
+    	contextFondo.fillStyle="#272c2f";
+    	contextFondo.strokeStyle = "#272c2f";
+    	contextFondo.lineWidth = 0;
+    	contextFondo.fill();
+    	contextFondo.stroke();
+    	contextFondo.closePath();
+    	
+    	}
+	}
+	for(var i=0;i<19;i++)
+	{
+    	for(var j=0;j<13;j++)
+    	{
+    	contextFondo.beginPath();
+    	var centerX = 15/480*canvasFondo.width+i*25/480*canvasFondo.width;
+    	var centerY = (canvasFondo.height/2-canvasFondo.height/2*0.01)-j*13/800*canvasFondo.height;
+    	var radius = canvasFondo.height/800*(13-j)/2;
+    	contextFondo.arc(centerX,centerY,radius,0,2*Math.PI,false);
+    	contextFondo.fillStyle="#272c2f";
+    	contextFondo.strokeStyle = "#272c2f";
+    	contextFondo.lineWidth = 0;
+    	contextFondo.fill();
+    	contextFondo.stroke();
+    	contextFondo.closePath();
+    	
+    	}
+	}
+	for(var i=0;i<19;i++)
+	{
+    	for(var j=0;j<13;j++)
+    	{
+    	contextFondo.beginPath();
+    	var centerX = 15/480*canvasFondo.width+i*25/480*canvasFondo.width;
+    	var centerY = (canvasFondo.height/2+canvasFondo.height/2*0.01)+j*13/800*canvasFondo.height;
+    	var radius = canvasFondo.height/800*(13-j)/2;
+    	contextFondo.arc(centerX,centerY,radius,0,2*Math.PI,false);
+    	contextFondo.fillStyle="#2c8584";
+    	contextFondo.strokeStyle = "#2c8584";
+    	contextFondo.lineWidth = 0;
+    	contextFondo.fill();
+    	contextFondo.stroke();
+    	contextFondo.closePath();
+    	
+    	}
+	}
+	for(var i=0;i<19;i++)
+	{
+    	for(var j=0;j<13;j++)
+    	{
+    	contextFondo.beginPath();
+    	var centerX = 15/480*canvasFondo.width+i*25/480*canvasFondo.width;
+    	var centerY = (canvasFondo.height-canvasFondo.height*0.01)-j*13/800*canvasFondo.height;
+    	var radius = canvasFondo.height/800*(13-j)/2;
+    	contextFondo.arc(centerX,centerY,radius,0,2*Math.PI,false);
+    	contextFondo.fillStyle="#2c8584";
+    	contextFondo.strokeStyle = "#2c8584";
+    	contextFondo.lineWidth = 0;
+    	contextFondo.fill();
+    	contextFondo.stroke();
+    	contextFondo.closePath();
+    	
+    	}
+	}
+	//Cuadrado central blanco
+  	contextFondo.beginPath();
+  	topLeftCornerX=0;
+  	topLeftCornerY=canvasFondo.height/2-canvasFondo.height/2*0.01;
+  	width=canvasFondo.width;
+  	height=canvasFondo.height*0.01;
+  	contextFondo.rect(topLeftCornerX, topLeftCornerY, width, height);
+    contextFondo.fillStyle = "white";
+    contextFondo.strokeStyle = "white";
+    contextFondo.fill();
+	contextFondo.stroke();
+    
+    	var canvasCountDown = document.getElementById("canvasCountDown");
+    	crearCountDownbg(canvasCountDown);
+    	
+    	var canvasStats = document.getElementById("canvasStats");
+    	crearInfoBG(canvasStats);
+    	crearBotonStats(canvasStats);
+		
+		var canvasPiedra = document.getElementById("canvasPiedra");
+		
+		crearCirucloUsuario(canvasPiedra);
+		crearPiedra(canvasPiedra,"silver","black");
+		
+		canvasPiedra = document.getElementById("canvasPiedra-cpu");
+		crearCirucloCPU(canvasPiedra);
+		crearPiedra(canvasPiedra,"silver","black");
+		
+		
+		var canvasPapel = document.getElementById("canvasPapel");
+		
+		crearCirucloUsuario(canvasPapel);
+		crearPapel(canvasPapel,"silver","silver");
+		
+		canvasPapel = document.getElementById("canvasPapel-cpu");
+		contextPapel = canvasPapel.getContext("2d");
+		crearCirucloCPU(canvasPapel);
+		crearPapel(canvasPapel,"silver","silver");
+		
+		var canvasTijeras = document.getElementById("canvasTijeras");
+	
+		crearCirucloUsuario(canvasTijeras);
+		crearTijeras(canvasTijeras,"silver","#163f3d");
+		
+		canvasTijeras = document.getElementById("canvasTijeras-cpu");
+		contextTijeras = canvasTijeras.getContext("2d");
+		crearCirucloCPU(canvasTijeras);
+		crearTijeras(canvasTijeras,"silver","#163f3d");
+		$.get('EstiloMovil.css',function(){
+			$.get('fonts/grover-slab-bold-webfont.eot',function(){
+				$.get('fonts/grover-slab-bold-webfont.ttf', function() {
+					var canvasInfo = document.getElementById("canvasInfo");
+					crearInfoBG(canvasInfo)
+					crearBotonInfo(canvasInfo);
+				});
+			});
+		});
+	};
+	</script>
+</head>
+<body>
+<div id="contenido">
+<canvas id="fondo" width="480" height="800" style="position:absolute; z-index:-1">
+</canvas>
+</canvas>
+<div id="btnsCpu" class="c100">
+<canvas id="canvasPiedra-cpu" width="146" height="146" class="cpu"></canvas>
+<canvas id="canvasPapel-cpu" width="146" height="146" class="cpu"></canvas>
+<canvas id="canvasTijeras-cpu" width="146" height="146" class="cpu"></canvas>
+
+</div>
+<div id="btnsCentro"  class="c100">
+<a id="btnInfo" href="#btnsCentro?key=info">
+<canvas id="canvasInfo" width="94" height="94"></canvas>
+</a>
+<div id="CountDown">
+<p>3</p>
+<canvas id="canvasCountDown" width="265" height="265"></canvas>
+</div>
+<a id="btnStats" href="#btnsCentro?key=stats">
+<canvas id="canvasStats" width="94" height="94"></canvas>
+</a>
+</div>
+<div id="btnsUsuario"  class="c100">
+<a href="#btnsUsuario?key=piedra" onclick="presionaBoton(this)">
+<canvas id="canvasPiedra" width="146" height="146" class ="usuario"></canvas>
+</a>
+<a href="#btnsUsuario?key=papel" onclick="presionaBoton(this)">
+<canvas id="canvasPapel" width="146" height="146" class="usuario"></canvas>
+</a>
+<a href="#btnsUsuario?key=tijera" onclick="presionaBoton(this)">
+<canvas id="canvasTijeras" width="146" height="146" class="usuario"></canvas>
+</a>
+</div>
+</div>
+</body>
+</html>
+
+

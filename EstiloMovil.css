@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Grover-Slab-Bold';
+    src: url('grover-slab-bold-webfont.eot');
+    src: url('fonts/grover-slab-bold-webfont.ttf');
+}
+@font-face {
+    font-family: 'AccidentalPresidencyRegular';
+    src: url('fonts/accid__-webfont.eot');
+    src: url('fonts/accid__-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/accid__-webfont.woff') format('woff'),
+         url('fonts/accid__-webfont.ttf') format('truetype'),
+         url('fonts/accid__-webfont.svg#AccidentalPresidencyRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+#btnInfo
+{
+	font-family:'Grover-Slab-Bold';
+	float:left;
+	margin:90px 0 0 10px;
+}
+#btnStats{
+	float:right;
+	margin:90px 10px 0 0;
+}
+body, #contenido {
+    margin: 0px;
+    padding: 0px;
+    /*height: 800px;
+    width:480px;*/
+}
+#contenido {
+	margin:0 auto;
+    height: 800px;
+    width:480px;
+}
+
+.c100 {
+	width:100%;
+	display:inline-block;	
+	text-align:center;
+}
+a { 
+outline:none; 
+text-decoration:none;
+}
+a img {
+border: 0px none;
+}
+
+#CountDown{
+margin:0 auto;
+float:left;
+display:block;
+height:265px;
+}
+#CountDown p {
+	display:block;
+	vertical-align:middle;
+	width:265px;
+	height:265px;
+	margin:0;
+	padding:0;
+	text-align:center;	
+	font-size:208px;
+	position:absolute;
+	z-index:5;
+	color:#313531;
+	font-family: 'AccidentalPresidencyRegular', sans-serif;
+	text-shadow: 0px 0px 6px #000;
+	-webkit-text-stroke-width: 1px;
+   	-webkit-text-stroke-color: white;
+}
+#CountDown p.msg{
+	color:#af292a;	
+	font-size:80px;
+	padding-top:80px;
+	height:185px;
+}
+#CountDown canvas {
+	position:absolute;
+	z-index:1;
+}
+#btnsCentro {
+	margin:110px 0;
+}
+#btnsCentro a 
+{
+	height:auto;
+	display: block;
+	/*float: left;*/
+	}
